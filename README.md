@@ -10,9 +10,9 @@ Einfacher Chatbot welcher Fragen zu einem Produkt wie Preis, Grösse, Farbe, Fun
 
 **Workflow**<br />
 **Dateneingabe**<br />
-Der Kunde gibt an um welches Produkt es geht und was für eine Frage er zum Artikel hat.
+Der Kunde gibt an um welches Produkt es geht und was für eine Frage er zum Artikel hat.<br />
 **Datenverarbeitung**<br />
-Die Anfrage wird dann in einer Stammdatenbank (Exceldatei oder direkt via Webseite) abgefragt und anhand der vorhandenen Angabe beantwortet. Sollten zu einer Frage keine passenden Daten zur Verfügung stehen, wird die Anfrage gespeichert und dem Kundendienst weitergeleitet zur Bearbeitung sowie dem Endkunden angezeigt, dass seine Anfrage vom Customer Service bearbeitet wird.
+Die Anfrage wird dann in einer Stammdatenbank (Exceldatei oder direkt via Webseite) abgefragt und anhand der vorhandenen Angabe beantwortet. Sollten zu einer Frage keine passenden Daten zur Verfügung stehen, wird die Anfrage gespeichert und dem Kundendienst weitergeleitet zur Bearbeitung sowie dem Endkunden angezeigt, dass seine Anfrage vom Customer Service bearbeitet wird.<br />
 **Datenausgabe**<br />
 Die Ausgabe erfolgt in einem Chat an den Endkonsumenten. Anhand der vorhandenen Daten sollen individuelle Antworten kreiert werden auf die häufigsten Fragen. 
 
