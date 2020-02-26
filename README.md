@@ -2,7 +2,8 @@
 **Projektidee
 Chatbot für Fossil Webshop**
 
-**Ausgangslage**\n
+**Ausgangslage**
+
 Da mein Projekt einen möglichst hohen Nutzen für meine Unternehmung erbringen soll, habe ich ein Brain Stormingnzu den Dienstleistungen und Prozessen in meiner Firma gemacht. Ein grosser Vorteil des Onlineshoppings ist die 24/7 zur verfügungsstehende Verkaufsfläche im Web. Eine Schwierigkeit hierbei ergibt sich jedoch für den Customer Service, denn der Kunde möchte gerne nebst der Möglichkeit Einkaufen zu können, möglichst auch zu Randzeiten betreut werden, bei Fragen zum Produkt. Meist steht neben den Öffnungszeiten des Customer Services nur eine Emailadresse als Kontaktangabe zur Verfügung. Für diese Ausgangssituation soll dem Endkunden während der Abwesehenheit ein einfacher Chatbot zur Verfügung stehen, welcher auf die gängisten Fragen dem Kunden eine Antwort geben kann und somit die Chance auf einen Verkauf erhöht. Gerade im Bereich Smartwatches sind die Konsumenten noch sehr unsicher und benötigen viel Auskunft zu den Funktionen und den Eigenschaften unserer Smartwatches. 
 
 **Funktion**
