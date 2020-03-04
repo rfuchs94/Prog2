@@ -17,6 +17,8 @@ Die Anfrage wird dann in einer Stammdatenbank (Exceldatei oder direkt via Websei
 Die Ausgabe erfolgt in einem Chat an den Endkonsumenten. Anhand der vorhandenen Daten sollen individuelle Antworten kreiert werden auf die häufigsten Fragen. 
 
 **Ablaufdiagramm**
+
+
 ![Bild](https://github.com/rfuchs94/Prog2/blob/master/Ablaufdiagramm.jpg)
 =======
 
