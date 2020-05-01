@@ -81,6 +81,7 @@ def brauche_hilfe():
             "Adresse": weg,
             "PLZ": plz,
             "Ort": ort,
+            "Email": email,
             "Eintrag": eintrag,
             "Frist": tag,
             "Kommentar": kommentar,
@@ -106,16 +107,27 @@ def biete_hilfe():
     return render_template("biete_hilfe.html")
 
 
-@app.route("/auswahl_name", methods=['GET', 'POST'])
-def auswahl_name():
-    if request.method == "POST":
-        name = request.form.get("name", "")
-        suchergebnis = []
-        alle_eingaben= datei_öffnen("text.json",[])
-        if suchergebnis["Name"] == name:
-                ausgabe= name 
+@app.route("/erledigt/<id>")
+def erledigt(id):
+    alle_eingaben= datei_öffnen("text.json",[])
+    for eingabe in alle_eingaben:
+        if eingabe["id"] == id:
+                return render_template("erledigt.html", eingabe = eingabe)
 
     return render_template("auswahl_name.html")
+
+@app.route("/bestätigt/")
+def bestätigt(id):
+    if request.method == "POST":
+        alle_eingaben= datei_öffnen("text.json",[])
+        helfername = request.form.get("helfername","")
+        eingabe["Status"] = "erledigt"
+        if eingabe["helfername"] == helfername:
+            return render_template("bestätigt.html", eingabe=eingabe)
+                
+
+    return render_template("erledigt.html")
+
 
 @app.route("/uebersicht")
 def uebersicht():

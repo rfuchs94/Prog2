@@ -31,7 +31,7 @@
           <th>{{ ergebnis["Eintrag"] }}</th>
           <th>{{ ergebnis["Frist"] }}</th>
           <th>{{ ergebnis["Kommentar"] }}</th>
-           <th href="{{url_for('home')}}"> Auswahl</th>
+           <th><a href="{{url_for('erledigt', id=ergebnis['id'])}}">Auswahl</a></th>
         </tr>
        {% endfor %}
       </tbody>
@@ -39,32 +39,6 @@
       </div>
     </div>
   </section>
-  <section>
-    <div class="container-fluid p-0">
-      <div class="offset-lg-3 col-lg-6 col-lg-3 order-lg-1 my-auto showcase-text">
-      <form method="POST">
-        <div class="form-group">
-          <div class=" lead mb-0 text-center">
-          <h2> Bitte Person aus der Tabelle auswählen </h2>
-          <label for="name">Nachname:</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Beispiel Hans" required>
-          </div>
-          <p></p>
-          <div class="text-center">
-          <button type="submit" class="btn btn-primary">Auswählen</button> </div>
-        </div>
-      </form>
-    </div> 
-  </div>
-  </section>
-<script type="text/javascript"> 
-  document.addEventlistener("DOMContentLoaded" , () => {
-    const rows = document.querySelectorAll("tr[data-href]"),
-    rows.forEach(row => {row.addEventlistener("click", () => {
-    window.location.href = row.data-href;
-      }),
-    }),
-  }), </script>
 
 </body>
 {% include "footer.html" %}

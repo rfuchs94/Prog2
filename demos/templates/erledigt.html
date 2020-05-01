@@ -4,11 +4,24 @@
   <section class="showcase">
     <div class="container-fluid p-0">
       <div class="offset-lg-2 col-lg-8 col-lg-2 order-lg-1 my-auto showcase-text">
-      <h2>Resultate für Hilfe {{ausgabe}}</h2>
-      <h2>Resultate für Hilfe {{ausgabe}}</h2>
-      <h2>Resultate für Hilfe {{ausgabe}}</h2>
-      </div>
-      </div>
+       <h2>Sie haben jemanden gefunden!</h2>
+          <p class="lead mb-0">
+            Sie können {{eingabe["Vorname"]}} {{eingabe["Name"]}} unter der Adresse:"{{eingabe["Email"]}}" kontaktieren. </p>
+            <p>Status</p>
+     <form action="/bestätigt" method="POST">
+        <div class="form-group">
+          <div class=" lead mb-0 text-center">
+          <h2> Liebe/r Helfer/in </h2>
+          <p>Wir freuen uns sehr über Ihre Hilfe! </br> Bitte teilen Sie uns noch Ihren Namen mit und bestätigen Sie Ihre Hilfe.</p> </div>
+          <label for="name">Name</label>
+          <input type="text" class="form-control" name="helfername" placeholder="Ihr Vor und Nachname" required>
+        </div>
+        <div class="text-center">
+        <button type="submit" class="btn btn-primary">Ja ich helfe</button> </div>
+      </form>
+    </div>
+    </div>
+  </div>
   </section>
 </body>
 
