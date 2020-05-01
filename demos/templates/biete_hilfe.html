@@ -1,0 +1,24 @@
+{% include "header.html" %}
+<body>
+  
+  <!-- Image Showcases -->
+  <section class="showcase">
+  <div class="offset-md-3 col-md-6 order-lg-1 my-auto showcase-text">
+    <div class="container-fluid p-0">
+      <form method="POST">
+        <div class="form-group">
+          <div class=" lead mb-0 text-center">
+          <h2> Personen aus der Nachbarschaft helfen </h2>
+          <p>Wir freuen uns sehr über Ihre Hilfe! </br> Bitte teilen Sie uns Ihren Wohnort mit.</p> </div>
+          <label for="plz">PLZ</label>
+          <input type="text" class="form-control" id="plz" name="plz" placeholder="Beispiel 4444" required>
+        </div>
+        <div class="text-center">
+        <button type="submit" class="btn btn-primary">Helfen</button> </div>
+      </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+{% include "footer.html" %}

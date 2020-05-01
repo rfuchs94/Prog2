@@ -1,0 +1,70 @@
+{% include "header.html" %}
+<body>
+  
+  <!-- Image Showcases -->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="offset-lg-2 col-lg-8 col-lg-2 order-lg-1 my-auto showcase-text">
+      <h2>Resultate für Hilfe</h2>
+      <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Vorname</th>
+          <th scope="col">Name</th>
+          <th scope="col">Adresse</th>
+          <th scope="col">PLZ</th>
+          <th scope="col">Ort</th>
+          <th scope="col">Eintrag</th>
+           <th scope="col">Frist</th>
+          <th scope="col">Kommentar</th>
+          <th scope="col"> Auswahl </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ergebnis in suchergebnis: %}
+        <tr>
+          <th>{{ ergebnis["Vorname"] }}</th>
+          <th>{{ ergebnis["Name"] }}</th>
+          <th>{{ ergebnis["Adresse"] }}</th>
+          <th>{{ ergebnis["PLZ"] }}</th>
+          <th>{{ ergebnis["Ort"] }}</th>
+          <th>{{ ergebnis["Eintrag"] }}</th>
+          <th>{{ ergebnis["Frist"] }}</th>
+          <th>{{ ergebnis["Kommentar"] }}</th>
+           <th href="{{url_for('home')}}"> Auswahl</th>
+        </tr>
+       {% endfor %}
+      </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container-fluid p-0">
+      <div class="offset-lg-3 col-lg-6 col-lg-3 order-lg-1 my-auto showcase-text">
+      <form method="POST">
+        <div class="form-group">
+          <div class=" lead mb-0 text-center">
+          <h2> Bitte Person aus der Tabelle auswählen </h2>
+          <label for="name">Nachname:</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Beispiel Hans" required>
+          </div>
+          <p></p>
+          <div class="text-center">
+          <button type="submit" class="btn btn-primary">Auswählen</button> </div>
+        </div>
+      </form>
+    </div> 
+  </div>
+  </section>
+<script type="text/javascript"> 
+  document.addEventlistener("DOMContentLoaded" , () => {
+    const rows = document.querySelectorAll("tr[data-href]"),
+    rows.forEach(row => {row.addEventlistener("click", () => {
+    window.location.href = row.data-href;
+      }),
+    }),
+  }), </script>
+
+</body>
+{% include "footer.html" %}

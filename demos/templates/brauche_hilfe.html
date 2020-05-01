@@ -1,0 +1,88 @@
+{% include "header.html" %}
+
+<body>
+  
+  <!-- Image Showcases -->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters ">
+
+        <div class="col-md-6 order-lg-2 text-white showcase-img center-block" style="background-image: url('bilder/like.png'); background-position:center;"></div>
+        <div class="offset-md-3 col-md-6 offset-md-3 order-lg-1 my-auto showcase-text center-block">
+          
+          <h2 class="text-center">Gemeinsam gegen Covid-19</h2>
+          <p class="lead mb-0 text-center">
+            Sie benötigen Hilfe? Wir helfen Ihnen gerne! <br /> Bitte füllen Sie dafür folgendes Formular aus: 
+            <br />   <br/></p>
+          
+            <form action="brauche_hilfe" method="POST">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="vorname">Vorname</label>
+                  <input type="Text" name="vorname" class="form-control" id="exampleFormControlInput1" placeholder="Max">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="exampleFormControlInput1">Nachname</label>
+                  <input type="Text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Muster">
+              </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="exampleFormControlInput1">Adresse</label>
+                  <input type="Text" name="weg" class="form-control" id="exampleFormControlInput1" placeholder="Musterweg 18">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleFormControlInput1">PLZ</label>
+                  <input type="text" name="plz" class="form-control" id="exampleFormControlInput1" placeholder="z.B. 4222">
+              </div>
+                <div class="form-group col-md-4">
+                  <label for="exampleFormControlInput1">Ort</label>
+                  <input type="Text" name="ort" class="form-control" id="exampleFormControlInput1" placeholder="z.B. Basel">
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Adresse</label>
+                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@beispiel.com">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Benötige Hilfe bei</label>
+                <select name="eintrag" class="form-control" id="exampleFormControlSelect1">
+                    <option>Einkaufen</option>
+                    <option>Rasen Mähen</option>
+                    <option>Putzen</option>
+                    <option>Auto fahren</option>
+                    <option>Essen abholen</option>
+                    <option>Hund spazieren gehen</option>
+                    <option>Post abholen</option>
+                    </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Bis wann sollte es erledigt sein?</label>
+                <select name="tag" class="form-control" id="exampleFormControlSelect1">
+                    <option>Heute</option>
+                    <option>Morgen</option>
+                    <option>Übermorgen</option>
+                    <option>Bis in einer Woche</option>
+                    <option>Bis in zwei Wochen</option>
+                    </select>
+                  </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Kommentar</label>
+                <textarea class="form-control" name="kommentar" id="exampleFormControlTextarea1" placeholder="Hier können sie wenn nötig einen Kommentar hinterlassen" rows="3"></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary" >Submit</button> </div>
+          </form>
+          <p> <br/> {{ausgabe}}</p>
+          <p>{{eingabe_hilfe}}</p>
+            
+
+        </div>
+          
+      </div>
+      
+    </div>
+  </section>
+</body>
+{% include "footer.html" %}
+  

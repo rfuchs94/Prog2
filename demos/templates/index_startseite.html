@@ -1,0 +1,70 @@
+{% include "header.html" %}
+<body>
+  <!-- Icons Grid -->
+  <section class="features-icons bg-light text-center" style="border-bottom-style: solid; border-width: 1px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+           
+            <div class="features-icons-icon d-flex"  style="height: 30px;">
+              <i class="icon-screen-desktop m-auto text-primary"></i>
+            </div>
+           <h2>Gemeinsam gegen Covid-19</h2>
+          <p class="lead mb-0">
+            Wollen Sie älteren Menschen helfen oder benötigen Sie evtl. Hilfe? </p>
+            <p>Wählen Sie bitte aus:</p>
+
+              <a class="btn btn-primary" href="{{url_for('brauche_hilfe')}}" role="button">Benötige Hilfe</a>
+               <a class="btn btn-primary" href="{{url_for('biete_hilfe')}}" role="button">Möchte helfen</a>
+           
+
+          
+           
+            <!--
+            <p class="lead mb-0">Dank benutzerfreundlichem User-Inferface, braucht man kein vertieftes Know-How, um Bestellungen aufgeben zu können.</p>
+          -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Image Showcases -->
+   <section class="features-icons bg-light text-center" style="border-bottom-style: solid; border-width: 1px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <img src="{{ url_for('static', filename='bilder/papier.jpg')}}" style='width: 300px'>
+            <div class="features-icons-icon d-flex"  style="height: 30px;">
+              <i class="icon-screen-desktop m-auto text-primary"></i>
+            </div>
+            <h3>Toilettenpapierrechner für sichere Reserven</h3>
+            <p>Wie viele Rollen haben Sie noch?</p>
+            <form action="#" method="POST">
+              <input type="text" name="wcpapier" placeholder="Eingabe Anzahl Rollen">
+              <button type="submit">Senden</button>
+            </form>
+
+            <p>{{ausgabe}}<p>
+            <p>{{hamsterer}}<p>
+
+            <ul>
+                {% for ding in dinger %}
+                    <li>{{ ding }}</li>
+                {% endfor %}
+            </ul>
+
+          
+           
+            <!--
+            <p class="lead mb-0">Dank benutzerfreundlichem User-Inferface, braucht man kein vertieftes Know-How, um Bestellungen aufgeben zu können.</p>
+          -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+{% include "footer.html" %}
