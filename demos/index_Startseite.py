@@ -114,17 +114,26 @@ def erledigt(id):
         if eingabe["id"] == id:
                 return render_template("erledigt.html", eingabe = eingabe)
 
-    return render_template("auswahl_name.html")
+   
 
-@app.route("/bestaetigt",  methods=['GET', 'POST'])
-def bestätigt():
+@app.route("/confirmed/",  methods=['GET', 'POST'])
+def confirmed():
     if request.method == "POST":
-        helfername = request.form["helfername"]
-        ausgabe = helfername
-        return render_template("bestaetigt.html", ausgabe=ausgabe)
+        helfername = request.form.get("helfername")
+        auftrag = request.form.get("auftrag_id")
+        suchergebnis = []
+        alle_eingaben= datei_öffnen("text.json",[])
+        for eingabe in alle_eingaben:
+            if eingabe["id"] == auftrag:
+                eingabe["Status"] = "geschlossen"
+                alle_eingaben.append(eingabe)
+                datei_schreiben("text.json",alle_eingaben)
+        
+                return render_template("confirmed.html", helfername=helfername, eingabe=eingabe)
+    return render_template("confirmed.html", helfername=helfername, eingabe=eingabe)
                 
 
-    return render_template("erledigt.html")
+    
 
 
 @app.route("/uebersicht")
