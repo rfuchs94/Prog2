@@ -3,10 +3,38 @@
   <!-- Image Showcases -->
   <section class="showcase">
     <div class="container-fluid p-0">
-      <div class="offset-lg-2 col-lg-8 col-lg-2 order-lg-1 my-auto showcase-text">
-      <h2>Resultate für Hilfe {{ausgabe}}</h2>
-      <h2>Resultate für Hilfe {{ausgabe}}</h2>
-      <h2>Resultate für Hilfe {{ausgabe}}</h2>
+      <div class="offset-md-1 col-md-10 col-md-1 order-lg-1 my-auto showcase-text">
+      <h2 class="text-center">Hier werden Ihnen alle Aufträge anzgezeigt</h2>
+      <div>
+        <table class="table table-hover table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Vorname</th>
+          <th scope="col">Name</th>
+          <th scope="col">Adresse</th>
+          <th scope="col">PLZ</th>
+          <th scope="col">Ort</th>
+          <th scope="col">Eintrag</th>
+           <th scope="col">Frist</th>
+          <th scope="col"> Auswahl </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- if statement nimmt die erste Kondition raus, statt nur zu färben-->
+        {% for ergebnis in alle_eingaben: %}
+          <tr {{rot}}>
+          <th>{{ ergebnis["Vorname"] }}</th>
+          <th>{{ ergebnis["Name"] }}</th>
+          <th>{{ ergebnis["Adresse"] }}</th>
+          <th>{{ ergebnis["PLZ"] }}</th>
+          <th>{{ ergebnis["Ort"] }}</th>
+          <th>{{ ergebnis["Eintrag"] }}</th>
+          <th>{{ ergebnis["Frist"] }}</th>
+          <th><a href="{{url_for('erledigt', id=ergebnis['id'])}}">auswählen</a></th>  
+        </tr>
+       {% endfor %}
+      </tbody>
+      </table>
       </div>
       </div>
   </section>

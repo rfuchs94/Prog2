@@ -3,14 +3,20 @@
   <!-- Image Showcases -->
   <section class="showcase">
     <div class="container-fluid p-0">
-      <div class="offset-lg-2 col-lg-8 col-lg-2 order-lg-1 my-auto showcase-text">
-       <h2>Sie haben jemanden gefunden!</h2>
-          <p class="lead mb-0">
-            Sie können {{eingabe["Vorname"]}} {{eingabe["Name"]}} unter der Adresse:"{{eingabe["Email"]}}" kontaktieren.</p>
+      <div class="offset-lg-2 col-lg-8 col-lg-2 order-lg-1 my-auto showcase-text text-center">
+       <h3>Sie haben einen passenden Auftrag gefunden!</h3>
+          <p>
+          <!--es soll nur wenn ein Kommentar eingegeben wurde die Nachricht erscheinen-->
+          {% if eingabe["Kommentar"]|length > 1 %} {{eingabe["Vorname"]}} {{eingabe["Name"]}} lässt Ihnen folgende Nachricht ausrichten:</br>
+          <a class="font-italic text-center">{{eingabe['Kommentar']}} </a> </p> {% endif %}
+          <p>Sie können {{eingabe["Vorname"]}} {{eingabe["Name"]}} kontaktieren unter der Adresse: <a class="font-weight-bold">"{{eingabe["Email"]}}".</a></p>
+          <!-- wird hier nur als kleiner Abstand zwischen den Zeilen genutzt, absichtlich kein neues Div-->
+        </br>
+      </br>
      <form action="/confirmed/" method="POST">
         <div class="form-group">
-          <div class=" lead mb-0 text-center">
-          <h2> Liebe/r Helfer/in </h2>
+          <div>
+          <h3> Liebe/r Helfer/in </h3>
           <p>Wir freuen uns sehr über Ihre Hilfe! </br> Bitte teilen Sie uns noch Ihren Namen mit und bestätigen Sie Ihre Hilfe.</p> </div>
           <label for="name">Auftrags Id</label>
           <input type="text" class="form-control" name="auftrag_id" value="{{eingabe['id']}}" readonly>

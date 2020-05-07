@@ -5,7 +5,7 @@
   <section class="showcase">
     <div class="container-fluid p-0">
       <div class="offset-lg-2 col-lg-8 col-lg-2 order-lg-1 my-auto showcase-text">
-      <h2>Resultate für Hilfe</h2>
+      <h2 class="text-center">Resultate für Hilfe</h2>
       <table class="table table-hover">
       <thead class="thead-dark">
         <tr>
@@ -16,7 +16,7 @@
           <th scope="col">Ort</th>
           <th scope="col">Eintrag</th>
            <th scope="col">Frist</th>
-          <th scope="col">Kommentar</th>
+          
           <th scope="col"> Auswahl </th>
         </tr>
       </thead>
@@ -30,7 +30,7 @@
           <th>{{ ergebnis["Ort"] }}</th>
           <th>{{ ergebnis["Eintrag"] }}</th>
           <th>{{ ergebnis["Frist"] }}</th>
-          <th>{{ ergebnis["Kommentar"] }}</th>
+         
            <th><a href="{{url_for('erledigt', id=ergebnis['id'])}}">auswählen</a></th>
         </tr>
        {% endfor %}

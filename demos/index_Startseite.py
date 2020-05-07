@@ -23,7 +23,7 @@ def datei_schreiben(datei, daten):
 
 
 app = Flask("demos")
-
+#Hamster Test (Berechnung nur Annahme, bitte mit Humor nehmen)
 @app.route("/home/", methods=['GET', 'POST'])
 def home():
     ausgabe= ""
@@ -33,9 +33,11 @@ def home():
     if request.method == 'POST':
         anzahl = int(request.form['wcpapier'])
         total = anzahl * 8
-        ausgabe = "Du hast noch genug für ca. " + str(total) + " Tage."
+        ausgabe = "Sie haben noch genug für ca. " + str(total) + " Tage."
         if total > int(50):
-                hamsterer = "Du bist ein Hamsterer!"
+                hamsterer = "Sie sind ein Hamsterer!"
+        else:
+            hamsterer = "Bitte nehmen Sie nur so viel wie nötig beim nächsten Einkauf."
         
         
     return render_template("index_startseite.html", ausgabe=ausgabe, hamsterer=hamsterer)
@@ -63,15 +65,15 @@ def brauche_hilfe():
         email= request.form['email']
         kommentar= request.form['kommentar']
         ausgabe = "Vielen Dank " + vorname +" "+ name + "! Wir werden uns um Ihr Anliegen schnellst möglich kümmern. Ihr Anliegen '"+ eintrag +"' wird möglichst bis "+tag+ " erledigt. Bei Rückfragen werden wir uns bei Ihnen an " +email+" melden."
-        if tag == "Heute":
+        if tag == "heute":
             tag = str(date.today())
-        if tag == "Morgen":
+        if tag == "morgen":
             tag = str(date.today() + timedelta(1))
-        if tag == "Übermorgen":
+        if tag == "übermorgen":
             tag = str(date.today() + timedelta(2))
-        if tag == "Bis in einer Woche":
+        if tag == "in einer Woche":
             tag = str(date.today() + timedelta(7))
-        if tag == "Bis in zwei Wochen":
+        if tag == "in zwei Wochen":
             tag = str(date.today() + timedelta(7))
 
         eingabe_brauche_hilfe = {
@@ -135,11 +137,20 @@ def confirmed():
 
     
 
-
+#aufträge werden noch nicht nach farbe gefiltert
 @app.route("/uebersicht")
 def uebersicht():
-                
-    return render_template("uebersicht.html")
+    rot=""
+    alle_eingaben = datei_öffnen("text.json",[])
+    for eingabe in alle_eingaben:
+        if eingabe["Status"] == "offen":
+            alle_eingaben.append(eingabe)
+        elif eingabe["Frist"] == "heute":
+            rot = 'class="table-danger"'
+        else:
+            rot = ""
+            return render_template("uebersicht.html", alle_eingaben=alle_eingaben, eingabe=eingabe, rot=rot)
+    return render_template("uebersicht.html", suchergebnis=suchergebnis, eingabe=eingabe, rot=rot)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
