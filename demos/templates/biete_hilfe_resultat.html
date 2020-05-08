@@ -4,9 +4,9 @@
   <!-- Image Showcases -->
   <section class="showcase">
     <div class="container-fluid p-0">
-      <div class="offset-lg-2 col-lg-8 col-lg-2 order-lg-1 my-auto showcase-text">
+      <div class="offset-lg-1 col-lg-10 col-lg-1 order-lg-1 my-auto showcase-text">
       <h2 class="text-center">Resultate für Hilfe</h2>
-      <table class="table table-hover">
+      <table class="table table-hover table-striped table-bordered">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Vorname</th>
@@ -29,9 +29,9 @@
           <th>{{ ergebnis["PLZ"] }}</th>
           <th>{{ ergebnis["Ort"] }}</th>
           <th>{{ ergebnis["Eintrag"] }}</th>
-          <th>{{ ergebnis["Frist"] }}</th>
+          <th>{{ ergebnis["Frist"]|safe }}</th>
          
-           <th><a href="{{url_for('erledigt', id=ergebnis['id'])}}">auswählen</a></th>
+           <th><a class="btn-primary" href="{{url_for('erledigt', id=ergebnis['id'])}}" role="button">auswählen</a></th>
         </tr>
        {% endfor %}
       </tbody>

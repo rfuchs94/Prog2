@@ -5,6 +5,9 @@
     <div class="container-fluid p-0">
       <div class="offset-md-1 col-md-10 col-md-1 order-lg-1 my-auto showcase-text">
       <h2 class="text-center">Hier werden Ihnen alle Aufträge anzgezeigt</h2>
+      <p> #Einträge mit Frist heute oder bis übermorgen werden gelb angezeigt </br>
+      #Einträge mit abgelaufener Frist wird rot angezeigt </br>
+    #Einträge mit Frist in 3 Tagen und höher werden grün angezeigt</p>
       <div>
         <table class="table table-hover table-bordered table-striped">
       <thead class="thead-dark">
@@ -14,23 +17,25 @@
           <th scope="col">Adresse</th>
           <th scope="col">PLZ</th>
           <th scope="col">Ort</th>
-          <th scope="col">Eintrag</th>
-           <th scope="col">Frist</th>
-          <th scope="col"> Auswahl </th>
+          <th width="50%" scope="col">Eintrag</th>
+           <th width="40%" scope="col">Frist</th>
+          <th scope="col"> Status </th>
+          <th scope="col"> Auwahl </th>
         </tr>
       </thead>
       <tbody>
-        <!-- if statement nimmt die erste Kondition raus, statt nur zu färben-->
-        {% for ergebnis in alle_eingaben: %}
-          <tr {{rot}}>
+        <!-- safe verwendet um manuelle Variabel aus py abzufragen/bestätigen-->
+        {% for ergebnis in suchergebnis: %}
+          <tr>
           <th>{{ ergebnis["Vorname"] }}</th>
           <th>{{ ergebnis["Name"] }}</th>
           <th>{{ ergebnis["Adresse"] }}</th>
           <th>{{ ergebnis["PLZ"] }}</th>
           <th>{{ ergebnis["Ort"] }}</th>
           <th>{{ ergebnis["Eintrag"] }}</th>
-          <th>{{ ergebnis["Frist"] }}</th>
-          <th><a href="{{url_for('erledigt', id=ergebnis['id'])}}">auswählen</a></th>  
+          <th>{{ ergebnis["Frist"]|safe }}</th>
+          <th>{{ ergebnis["Status"] }}</th>
+          <th><a class="btn-primary" href="{{url_for('erledigt', id=ergebnis['id'])}}" role="button">auswählen</a></th>  
         </tr>
        {% endfor %}
       </tbody>

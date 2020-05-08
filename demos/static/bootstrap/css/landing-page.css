@@ -14,7 +14,8 @@ h6 {
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: #4F4F4F;
+  background-color: #696969;
+  color: #FFFFFF
 }
 
 header.masthead {

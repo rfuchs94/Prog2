@@ -4,6 +4,8 @@ from flask import request
 import json 
 from datetime import date, timedelta
 import uuid 
+
+
   
 
 
@@ -103,6 +105,12 @@ def biete_hilfe():
         alle_eingaben= datei_öffnen("text.json",[])
         for eingabe in alle_eingaben:
             if eingabe["PLZ"] == plz and eingabe["Status"] == "offen":
+                if eingabe["Frist"] == str(date.today()) or eingabe["Frist"] == str(date.today() + timedelta(1,2)):
+                    eingabe["Frist"]= f'<a style="color:orange">{eingabe["Frist"]}</a>'
+                if eingabe["Frist"] == str(date.today()) or eingabe["Frist"] <= str(date.today() - timedelta(1,2,3,4)):
+                    eingabe["Frist"]= f'<a style="color:red">{eingabe["Frist"]}</a>'
+                else:
+                    eingabe["Frist"]= f'<a style="color:green">{eingabe["Frist"]}</a>'
                 suchergebnis.append(eingabe)
 
         return render_template("biete_hilfe_resultat.html", suchergebnis = suchergebnis)        
@@ -137,20 +145,35 @@ def confirmed():
 
     
 
-#aufträge werden noch nicht nach farbe gefiltert
+#farbe von frist wird in html manuell überschrieben nach variabel
+#Einträge mit Frist heute oder bis übermorgen werden gelb angezeigt
+#Einträge mit abgelaufener Frist wird rot angezeigt
+#Einträge mit Frist in 3 Tagen und höher werden grün angezeigt
 @app.route("/uebersicht")
 def uebersicht():
+    eingabe=""
     rot=""
+    suchergebnis=[]
     alle_eingaben = datei_öffnen("text.json",[])
     for eingabe in alle_eingaben:
         if eingabe["Status"] == "offen":
-            alle_eingaben.append(eingabe)
-        elif eingabe["Frist"] == "heute":
-            rot = 'class="table-danger"'
-        else:
-            rot = ""
-            return render_template("uebersicht.html", alle_eingaben=alle_eingaben, eingabe=eingabe, rot=rot)
+            if eingabe["Frist"] == str(date.today()) or eingabe["Frist"] == str(date.today() + timedelta(1,2)):
+                eingabe["Frist"]= f'<a style="color:orange">{eingabe["Frist"]}</a>'
+            if eingabe["Frist"] == str(date.today()) or eingabe["Frist"] <= str(date.today() - timedelta(1,2,3,4)):
+                eingabe["Frist"]= f'<a style="color:red">{eingabe["Frist"]}</a>'
+            else:
+                eingabe["Frist"]= f'<a style="color:green">{eingabe["Frist"]}</a>'
+
+
+            suchergebnis.append(eingabe)
+        
+            
     return render_template("uebersicht.html", suchergebnis=suchergebnis, eingabe=eingabe, rot=rot)
+
+@app.route("/plotly")
+def plotly():
+   
+    return render_template('plotly.html')
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

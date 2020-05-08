@@ -9,7 +9,7 @@
         "Eintrag": "Einkaufen",
         "Frist": "2020-05-01",
         "Kommentar": "",
-        "Status": "offen"
+        "Status": "geschlossen"
     },
     {
         "id": "080af561-8b90-11ea-8171-a434d99a96f5",
@@ -74,7 +74,7 @@
         "Eintrag": "Hund spazieren gehen",
         "Frist": "2020-05-03",
         "Kommentar": "",
-        "Status": "offen"
+        "Status": "geschlossen"
     },
     {
         "id": "0ef30465-8bba-11ea-b79d-a434d99a96f5",
@@ -463,6 +463,70 @@
         "Email": "robinfuchs@hotmail.com",
         "Eintrag": "Einkaufen",
         "Frist": "2020-05-07",
+        "Kommentar": "",
+        "Status": "offen"
+    },
+    {
+        "id": "a4876143-9100-11ea-92f4-a434d99a96f5",
+        "Vorname": "Robin",
+        "Name": "Fuchs",
+        "Adresse": "Hotzlerweg",
+        "PLZ": "4058",
+        "Ort": "Basel",
+        "Email": "robinfuchs@hotmail.com",
+        "Eintrag": "Einkaufen",
+        "Frist": "2020-05-08",
+        "Kommentar": "danke!",
+        "Status": "offen"
+    },
+    {
+        "id": "47d156ed-8b82-11ea-a6de-a434d99a96f5",
+        "Vorname": "Vanessa ",
+        "Name": "fjfj",
+        "Adresse": "fjfjf",
+        "PLZ": "4224",
+        "Ort": "basel",
+        "Eintrag": "Einkaufen",
+        "Frist": "2020-05-01",
+        "Kommentar": "",
+        "Status": "geschlossen"
+    },
+    {
+        "id": "0a6d0c62-910a-11ea-b538-a434d99a96f5",
+        "Vorname": "Valenca",
+        "Name": "Huber",
+        "Adresse": "Vierwaldst\u00e4ttersee",
+        "PLZ": "4005",
+        "Ort": "K\u00fcssnacht",
+        "Email": "name@beispiel.com",
+        "Eintrag": "Auto fahren",
+        "Frist": "2020-05-09",
+        "Kommentar": "<3",
+        "Status": "offen"
+    },
+    {
+        "id": "cd242a63-8bb9-11ea-be84-a434d99a96f5",
+        "Vorname": "Andreas",
+        "Name": "Meier",
+        "Adresse": "blbla",
+        "PLZ": "4224",
+        "Ort": "liestal",
+        "Email": "name@beispiel.com",
+        "Eintrag": "Hund spazieren gehen",
+        "Frist": "2020-05-03",
+        "Kommentar": "",
+        "Status": "geschlossen"
+    },
+    {
+        "id": "3e9d678f-910b-11ea-a3a2-a434d99a96f5",
+        "Vorname": "Andreas",
+        "Name": "Meier",
+        "Adresse": "blbla",
+        "PLZ": "4224",
+        "Ort": "liestal",
+        "Email": "name@beispiel.com",
+        "Eintrag": "Einkaufen",
+        "Frist": "2020-05-08",
         "Kommentar": "",
         "Status": "offen"
     }
