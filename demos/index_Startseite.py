@@ -22,6 +22,19 @@ def datei_schreiben(datei, daten):
     with open (datei, "w", encoding="utf-8") as json_file:
             json.dump(daten,json_file, indent=4)
 
+def doppelte_einträge(alle_eingaben):
+    alle_id = []
+    alle_doppelte_id = []
+    for eingabe in alle_eingaben:
+        if eingabe["id"] in alle_id:
+            alle_doppelte_id.append(eingabe["id"])
+        else:
+            alle_id.append(eingabe["id"])
+    for doppelte_id in sorted(alle_doppelte_id):
+        print(doppelte_id)
+        
+
+
 
 
 app = Flask("demos")
@@ -89,7 +102,8 @@ def brauche_hilfe():
             "Eintrag": eintrag,
             "Frist": tag,
             "Kommentar": kommentar,
-            "Status": "offen"
+            "Status": "offen",
+            "Helfername": "nicht definiert"
         }
 
         alle_eingaben.append(eingabe_brauche_hilfe)
@@ -136,10 +150,13 @@ def confirmed():
         for eingabe in alle_eingaben:
             if eingabe["id"] == auftrag:
                 eingabe["Status"] = "geschlossen"
-                alle_eingaben.append(eingabe)
-                datei_schreiben("text.json",alle_eingaben)
+                eingabe["Helfername"] = helfername
+
+                #alle_eingaben.append(eingabe)
+        datei_schreiben("text.json",alle_eingaben)
+                
         
-                return render_template("confirmed.html", helfername=helfername, eingabe=eingabe)
+        return render_template("confirmed.html", helfername=helfername, eingabe=eingabe)
     return render_template("confirmed.html", helfername=helfername, eingabe=eingabe)
                 
 
@@ -151,10 +168,11 @@ def confirmed():
 #Einträge mit Frist in 3 Tagen und höher werden grün angezeigt
 @app.route("/uebersicht")
 def uebersicht():
-    eingabe=""
-    rot=""
+   
     suchergebnis=[]
+    suchergebnis_2=[]
     alle_eingaben = datei_öffnen("text.json",[])
+    doppelte_einträge(alle_eingaben)
     for eingabe in alle_eingaben:
         if eingabe["Status"] == "offen":
             if eingabe["Frist"] == str(date.today()) or eingabe["Frist"] == str(date.today() + timedelta(1,2)):
@@ -164,16 +182,26 @@ def uebersicht():
             else:
                 eingabe["Frist"]= f'<a style="color:green">{eingabe["Frist"]}</a>'
 
-
             suchergebnis.append(eingabe)
-        
-            
-    return render_template("uebersicht.html", suchergebnis=suchergebnis, eingabe=eingabe, rot=rot)
+    ###funktion zur sortierung. wichtig suchergebnis muss zugewiesen werden https://www.geeksforgeeks.org/ways-sort-list-dictionaries-values-python-using-lambda-function/
+    suchergebnis = sorted(suchergebnis, key = lambda person:
+        person['PLZ'])
 
-@app.route("/plotly")
-def plotly():
-   
-    return render_template('plotly.html')
+    for erledigt in alle_eingaben:
+        if erledigt["Status"] == "geschlossen":
+            suchergebnis_2.append(erledigt)
+        
+    
+    return render_template("uebersicht.html", suchergebnis=suchergebnis, eingabe=eingabe, suchergebnis_2=suchergebnis_2, erledigt=erledigt)
+
+@app.route("/helfer/<id>")
+def helfer(id):
+    alle_eingaben= datei_öffnen("text.json",[])
+    for eingabe in alle_eingaben:
+        if eingabe["id"] == id:
+            return render_template("helfer.html", eingabe = eingabe)
+    return render_template("helfer.html", eingabe = eingabe)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

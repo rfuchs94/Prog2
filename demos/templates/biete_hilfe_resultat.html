@@ -17,7 +17,7 @@
           <th scope="col">Eintrag</th>
            <th scope="col">Frist</th>
           
-          <th scope="col"> Auswahl </th>
+          <th width="100" scope="col"> Auswahl </th>
         </tr>
       </thead>
       <tbody>
@@ -31,7 +31,8 @@
           <th>{{ ergebnis["Eintrag"] }}</th>
           <th>{{ ergebnis["Frist"]|safe }}</th>
          
-           <th><a class="btn-primary" href="{{url_for('erledigt', id=ergebnis['id'])}}" role="button">auswählen</a></th>
+           <th><a class="btn btn-primary" href="{{url_for('erledigt', id=ergebnis['id'])}}" role="button">auswählen</a></th>
+           <!--Alternative: <a class="btn btn-primary" href="{{url_for('erledigt', id=ergebnis['id'])}}" role="button">auswählen</a> -->
         </tr>
        {% endfor %}
       </tbody>
