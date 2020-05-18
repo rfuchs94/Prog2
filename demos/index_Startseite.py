@@ -67,6 +67,7 @@ def neu():
 def brauche_hilfe():
     alle_eingaben= datei_öffnen("text.json",[])
     ausgabe=""
+    titel=""
 
     if request.method == 'POST':
         eintragsid = uuid.uuid1() 
@@ -79,6 +80,7 @@ def brauche_hilfe():
         tag = request.form['tag']
         email= request.form['email']
         kommentar= request.form['kommentar']
+        titel = "Auftrag erfolgreich eingegeben!"
         ausgabe = "Vielen Dank " + vorname +" "+ name + "! Wir werden uns um Ihr Anliegen schnellst möglich kümmern. Ihr Anliegen '"+ eintrag +"' wird möglichst bis "+tag+ " erledigt. Bei Rückfragen werden wir uns bei Ihnen an " +email+" melden."
         if tag == "heute":
             tag = str(date.today())
@@ -109,7 +111,7 @@ def brauche_hilfe():
         alle_eingaben.append(eingabe_brauche_hilfe)
         datei_schreiben("text.json",alle_eingaben)
         
-    return render_template("brauche_hilfe.html", ausgabe=ausgabe)
+    return render_template("brauche_hilfe.html", ausgabe=ausgabe, titel=titel)
 
 @app.route("/biete_hilfe", methods=['GET', 'POST'])
 def biete_hilfe():
