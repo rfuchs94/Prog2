@@ -22,7 +22,7 @@ h6 {
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background-image: url("../bilder/home.jpg"); 
+  background-image: url("../bilder/home.jpg");
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -53,7 +53,7 @@ header.masthead h1 {
 }
 
 .showcase .showcase-text {
-  padding: 3rem;
+  padding: 1rem;
 }
 
 .showcase .showcase-img {

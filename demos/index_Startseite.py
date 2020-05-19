@@ -80,7 +80,7 @@ def brauche_hilfe():
         tag = request.form['tag']
         email= request.form['email']
         kommentar= request.form['kommentar']
-        titel = "Auftrag erfolgreich eingegeben!"
+        titel = f'<h2 class=text-center style="color:black"> <br/> Auftrag erfolgreich eingegeben!</h2>'
         ausgabe = "Vielen Dank " + vorname +" "+ name + "! Wir werden uns um Ihr Anliegen schnellst möglich kümmern. Ihr Anliegen '"+ eintrag +"' wird möglichst bis "+tag+ " erledigt. Bei Rückfragen werden wir uns bei Ihnen an " +email+" melden."
         if tag == "heute":
             tag = str(date.today())
