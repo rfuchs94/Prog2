@@ -18,10 +18,11 @@ h6 {
   color: #FFFFFF
 }
 
+/* Quelle: <a href="https://de.freepik.com/fotos-vektoren-kostenlos/baum">Baum Vektor erstellt von upklyak - de.freepik.com</a> */
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background-image: url("../bilder/startbild2.jpg"); 
+  background-image: url("../bilder/home.jpg"); 
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -67,7 +68,7 @@ header.masthead h1 {
 }
 
 .features-icons {
-  padding-top: 7rem;
+  padding-top: 3rem;
   padding-bottom: 7rem;
 }
 
@@ -119,7 +120,7 @@ header.masthead h1 {
   left: 0;
   opacity: 0.3;
 }
-
+/* um Link in Navigation zu wechseln/müsste mit Javascript gemacht werden - nicht weiter bearbeitet */
 <script>
     $(document).ready(function () {
     $("#{{request.endpoint}}").parent().addClass("active"); })

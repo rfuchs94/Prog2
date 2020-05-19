@@ -192,6 +192,10 @@ def uebersicht():
     for erledigt in alle_eingaben:
         if erledigt["Status"] == "geschlossen":
             suchergebnis_2.append(erledigt)
+    #Sortierung nach Name, falls eine Person, deren geholfen wurde wissen möchte wer ihr geholfen hat - findet sie sich selber schnell in der Liste.
+    #Oder als Administrator einfache übersicht welche Tickets erledigt wurden, Frist nicht relevant zur Sortierung
+    suchergebnis_2 = sorted(suchergebnis_2, key = lambda person:
+        person['Name'])
         
     
     return render_template("uebersicht.html", suchergebnis=suchergebnis, eingabe=eingabe, suchergebnis_2=suchergebnis_2, erledigt=erledigt)
