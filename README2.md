@@ -22,7 +22,7 @@ Der Name der helfenden Person wird bei der Auswahl des geschlossenen Auftrags an
 **Ablaufdiagramm**
 
 
-![Bild](https://github.com/rfuchs94/Prog2/blob/master/Ablaufdiagramm Webapplikation.jpg)
+![Bild](https://github.com/rfuchs94/Prog2/blob/master/Ablaufdiagramm Webapplikation.png)
 =======
 
 
