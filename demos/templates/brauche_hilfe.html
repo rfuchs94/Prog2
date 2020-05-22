@@ -8,7 +8,10 @@
 
         <div class="col-md-6 order-lg-2 text-white center-block"></div>
         <div class="offset-md-4 col-md-4 offset-md-4 order-lg-1 my-auto showcase-text center-block text-center">
-          <!-- Text wird eingefügt zur Bestätigung nach Eingabe des Formulares -->
+          <!-- Text wird eingefügt zur Bestätigung nach Eingabe des Formulares 
+            Funktion aus brauche hilfe, Formatierung erfolgt in der Funktion-->
+            <!-- Email Adresse und PLZ sind Pflichtfelder, da Person sonst nicht kontaktiert werden kann oder Eintrag nicht aufgerufen wird bei biete_hilfe_resultat -->
+
            {{titel|safe}} 
            {{ausgabe|safe}}
           <h2 class="text-center"></p> <br/> Gemeinsam gegen Covid-19</h2>
@@ -31,6 +34,7 @@
                   <label for="exampleFormControlInput1">Adresse</label>
                   <input type="Text" name="weg" class="form-control" id="exampleFormControlInput1" placeholder="Musterweg 18">
                 </div>
+                <!-- PLZ wird zugewiesen auf mögliche Anzahl 1000-9999, da PLZ in der CH nur vierstellig.-->
                 <div class="form-group col-md-3">
                   <label for="exampleFormControlInput1">PLZ</label>
                   <input type="number" name="plz" class="form-control" min="1000" max="9999" id="exampleFormControlInput1" placeholder="z.B. 4222" required>

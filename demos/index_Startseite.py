@@ -7,7 +7,7 @@ import uuid
 
 
   
-
+#hier wird die datei gelesen/geladen, wenn bestehende Daten vorhanden sind.
 
 def datei_öffnen(datei, standardwert):
     
@@ -18,10 +18,13 @@ def datei_öffnen(datei, standardwert):
     except Exception:
             return standardwert
 
+#datei wird geladen und überschrieben/die einträge ergänzt, die Daten werden somit gespeichert
 def datei_schreiben(datei, daten):
     with open (datei, "w", encoding="utf-8") as json_file:
             json.dump(daten,json_file, indent=4)
 
+#es waren aufgrund eines Fehlers im Code bei der Änderung auf "status geschlossen" Einträge mehrfach vorhanden mit der gleichen ID.
+#Mit der Funktion wird eine Liste kreiert für alle id's, wenn eine ID mehrmals vorkommt wird sie sortiert und aufgelistet in "doppelte_id".
 def doppelte_einträge(alle_eingaben):
     alle_id = []
     alle_doppelte_id = []
@@ -63,6 +66,7 @@ def neu():
     zahl = 6
     return render_template("index_startseite.html", dinger=dinger, zahl=zahl)
 
+#funktion nimmmt die eingabe per get post method entgegen.
 @app.route("/brauche_hilfe", methods=['GET', 'POST'])
 def brauche_hilfe():
     alle_eingaben= datei_öffnen("text.json",[])
@@ -107,12 +111,12 @@ def brauche_hilfe():
             "Status": "offen",
             "Helfername": "nicht definiert"
         }
-
+#dictionary wird in json file umgewandelt 
         alle_eingaben.append(eingabe_brauche_hilfe)
         datei_schreiben("text.json",alle_eingaben)
         
     return render_template("brauche_hilfe.html", ausgabe=ausgabe, titel=titel)
-
+#auflistung der offenen einträge aus alle eingaben 
 @app.route("/biete_hilfe", methods=['GET', 'POST'])
 def biete_hilfe():
     if request.method == "POST":
@@ -132,7 +136,7 @@ def biete_hilfe():
         return render_template("biete_hilfe_resultat.html", suchergebnis = suchergebnis)        
     return render_template("biete_hilfe.html")
 
-
+#Eingabe soll anhand der ID gefunden werden. Dynamische url 
 @app.route("/erledigt/<id>")
 def erledigt(id):
     alle_eingaben= datei_öffnen("text.json",[])
@@ -141,7 +145,9 @@ def erledigt(id):
                 return render_template("erledigt.html", eingabe = eingabe)
 
    
-
+#Helfende Person trägt Namen ein und bestätigt Eingabe. 
+#Eingabe wird gespeichert und Status der Auftrags id auf "geschlossen" angepasst
+#Eingabe wird somit nicht mehr angezeigt in der Tabelle "biete_hilfe_resultat.html"
 @app.route("/confirmed/",  methods=['GET', 'POST'])
 def confirmed():
     if request.method == "POST":
@@ -200,6 +206,7 @@ def uebersicht():
     
     return render_template("uebersicht.html", suchergebnis=suchergebnis, eingabe=eingabe, suchergebnis_2=suchergebnis_2, erledigt=erledigt)
 
+#alle_eingaben wird aufgrund der id nach dem Namen der helfenden Person abgefragt und ausgegeben.
 @app.route("/helfer/<id>")
 def helfer(id):
     alle_eingaben= datei_öffnen("text.json",[])

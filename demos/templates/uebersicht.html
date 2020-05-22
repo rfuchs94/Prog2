@@ -9,6 +9,7 @@
       <div>
         <table class="table table-hover table-bordered table-striped">
       <thead class="thead-dark">
+        <!-- Ausgabe der Tabelle, Adresse, Frist und Eintrag sollen auf einer Zeile ausgegeben werden-->
         <tr>
           <th scope="col">Vorname</th>
           <th scope="col">Name</th>
@@ -22,7 +23,8 @@
         </tr>
       </thead>
       <tbody>
-        <!-- safe verwendet um manuelle Variabel aus py abzufragen/bestätigen-->
+        <!-- safe verwendet um manuelle Variabel aus py abzufragen/bestätigen
+          offene Aufträge könnnen ausgewählt werden - landet bei erledigt, analaog nach biete_hilfe_resultat.html-->
         {% for ergebnis in suchergebnis: %}
           <tr>
           <th>{{ ergebnis["Vorname"] }}</th>
@@ -41,6 +43,7 @@
       </table>
       </div>
       <p> <br/> <br/> </p>
+      <!-- geschlossene Aufträge können ausgewählt werden zur Prüfung, wer den Auftrag ausgeführt hat-->
       <h2 class="text-center">Geschlossene Aufträge</h2>
       <p class="text-center"> Wählen Sie bitte einen Auftrag aus, um zu sehen, wer diesen erledigt hat. </br>
       <div>
