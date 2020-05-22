@@ -8,6 +8,8 @@ import uuid
 
   
 #hier wird die datei gelesen/geladen, wenn bestehende Daten vorhanden sind.
+#ansonsten gilt except 
+#tutoring und Quelle Einführung Programmieren Json 
 
 def datei_öffnen(datei, standardwert):
     
@@ -19,6 +21,7 @@ def datei_öffnen(datei, standardwert):
             return standardwert
 
 #datei wird geladen und überschrieben/die einträge ergänzt, die Daten werden somit gespeichert
+#https://kite.com/python/answers/how-to-update-a-json-file-in-python
 def datei_schreiben(datei, daten):
     with open (datei, "w", encoding="utf-8") as json_file:
             json.dump(daten,json_file, indent=4)
@@ -72,7 +75,7 @@ def brauche_hilfe():
     alle_eingaben= datei_öffnen("text.json",[])
     ausgabe=""
     titel=""
-
+#Quelle für Datum Funktion: https://www.programiz.com/python-programming/datetime/current-datetime 
     if request.method == 'POST':
         eintragsid = uuid.uuid1() 
         vorname = request.form['vorname']
@@ -116,7 +119,8 @@ def brauche_hilfe():
         datei_schreiben("text.json",alle_eingaben)
         
     return render_template("brauche_hilfe.html", ausgabe=ausgabe, titel=titel)
-#auflistung der offenen einträge aus alle eingaben 
+#auflistung der offenen einträge aus alle eingaben
+#Quelle aus Unterlagen Einführung Programmieren 2
 @app.route("/biete_hilfe", methods=['GET', 'POST'])
 def biete_hilfe():
     if request.method == "POST":
@@ -137,6 +141,7 @@ def biete_hilfe():
     return render_template("biete_hilfe.html")
 
 #Eingabe soll anhand der ID gefunden werden. Dynamische url 
+# https://stackoverflow.com/questions/35107885/how-to-generate-dynamic-urls-in-flask
 @app.route("/erledigt/<id>")
 def erledigt(id):
     alle_eingaben= datei_öffnen("text.json",[])

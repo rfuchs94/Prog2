@@ -1,6 +1,7 @@
 {% include "header.html" %}
 <body>
-  <!-- Ausgabe der Einträge in alle_eingaben unter der Bedingung, dass der Status offen ist -->
+  <!-- Ausgabe der Einträge in alle_eingaben unter der Bedingung, dass der Status offen ist
+    Quelle Tabelle: https://getbootstrap.com/docs/4.4/content/tables/-->
   <section class="showcase">
     <div class="container-fluid p-0">
       <div class="offset-lg-1 col-lg-10 col-lg-1 order-lg-1 my-auto showcase-text">
@@ -29,7 +30,7 @@
           <th>{{ ergebnis["Ort"] }}</th>
           <th>{{ ergebnis["Eintrag"] }}</th>
           <th>{{ ergebnis["Frist"]|safe }}</th>
-         
+         <!-- id wird beim ergebnis mitgegeben bei der url (dynamisch) siehe python def erledigt --> 
            <th><a class="btn btn-primary" href="{{url_for('erledigt', id=ergebnis['id'])}}" role="button">auswählen</a></th>
            <!--Alternative: <a class="btn btn-primary" href="{{url_for('erledigt', id=ergebnis['id'])}}" role="button">auswählen</a> -->
         </tr>

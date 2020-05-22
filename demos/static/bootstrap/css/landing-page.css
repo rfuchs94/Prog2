@@ -13,6 +13,7 @@ h6 {
   font-weight: 700;
 }
 
+/* Tabelle Farbe ändert auf Grau bei benützung der Maus*/
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #696969;
   color: #FFFFFF
@@ -52,6 +53,7 @@ header.masthead h1 {
   }
 }
 
+/* Formatierungen für section, grund Formatierung aus Modul Aris Teamprojekt übernommen, Layout auf dieses Projekt angepasst*/
 .showcase .showcase-text {
   padding: 1rem;
 }
