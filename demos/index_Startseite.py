@@ -98,7 +98,7 @@ def brauche_hilfe():
         if tag == "in einer Woche":
             tag = str(date.today() + timedelta(7))
         if tag == "in zwei Wochen":
-            tag = str(date.today() + timedelta(7))
+            tag = str(date.today() + timedelta(14))
 
         eingabe_brauche_hilfe = {
             "id": str(eintragsid),
