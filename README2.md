@@ -10,9 +10,9 @@ Es soll eine zweiseitige Plattform entstehen. Einerseits zur Eingabe der Hilfeau
 
 **Workflow**<br />
 **Dateneingabe**<br />
-Hilfsbedürftige Person geht auf "benötige Hilfe" aus dem Startmenü und wählt im Formular aus, wobei sie Hilfe braucht, sowie persönliche Kontaktdaten. Die Person, welche Hilfe anbieten möchte, kann aus dem Startnavigation "möchte helfen" auswählen und gelangt zur Eingabe der lokalen PLZ. Wenn der Auftrag ausgewählt wurde muss der Name der helfenden Person eingegeben und die Hilfe bestätigt werden. Offene Aufträge können auch aus der Übersicht ausgewählt und bearbeitet werden. <br />
+Hilfsbedürftige Person geht auf "benötige Hilfe" aus dem Startmenü und wählt im Formular aus, wobei sie Hilfe braucht, sowie persönliche Kontaktdaten. Die Person, welche Hilfe anbieten möchte, kann aus der Home Navigation "möchte helfen" auswählen und gelangt zur Eingabe der lokalen PLZ. Wenn der Auftrag ausgewählt wurde muss der Name der helfenden Person eingegeben und die Hilfe bestätigt werden. Offene Aufträge können auch aus der Übersicht ausgewählt und bearbeitet werden. <br />
 **Datenverarbeitung**<br />
-Die Anfrage wird als Dictionary entgegengenommen und dann in einer Stammdatenbank (json Datei) mit einer Auftrags ID mit dem Status offen gespeichert. Wenn ein Auftrag abgeschlossen wird, wird der Eintrag anhand der ID gefunden und der Status umgeschrieben auf "geschlossen". Der name der helfenden Person wird im json File abgespeichert. Bei jedem neuen Eintrag wird die json Datei geladen und anschliessend komplett überschrieben und somit gespeichert.<br />
+Die Anfrage wird als Dictionary entgegengenommen und dann in einer Stammdatenbank (json Datei) mit einer Auftrags ID mit dem Status "offen" gespeichert. Wenn ein Auftrag abgeschlossen wird, wird der Eintrag anhand der ID gefunden und der Status umgeschrieben auf "geschlossen". Der name der helfenden Person wird im json File abgespeichert. Bei jedem neuen Eintrag wird die json Datei geladen und anschliessend komplett überschrieben und somit gespeichert.<br />
 **Datenausgabe**<br />
 Benötige Hilfe: Die Eingabe der Person wird in der Maske bestätigt. <br />
 Möchte helfen: Die Json Datei wird nach der PLZ abefragt und listet alle offenen Aufträge ein. <br />
@@ -25,7 +25,7 @@ Der Name der helfenden Person wird bei der Auswahl des geschlossenen Auftrags an
 **Ablaufdiagramm**
 
 
-![Bild](AblaufdiagrammWebapplikation.jpg)
+![Bild](AblaufdiagrammWebapplikation_final.jpg)
 =======
 
 
