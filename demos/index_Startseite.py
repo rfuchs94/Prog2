@@ -6,7 +6,7 @@ from datetime import date, timedelta
 import uuid 
 
 
-  
+#zur Ausführung der Datei müssen alle obige Pakete from flask "" oder import "" geladen sein. 
 #hier wird die datei gelesen/geladen, wenn bestehende Daten vorhanden sind.
 #ansonsten gilt except 
 #tutoring und Quelle Einführung Programmieren Json 
@@ -21,6 +21,7 @@ def datei_öffnen(datei, standardwert):
             return standardwert
 
 #datei wird geladen und überschrieben/die einträge ergänzt, die Daten werden somit gespeichert
+#wenn noch keine Datei vorhanden, wird eine erstellt
 #https://kite.com/python/answers/how-to-update-a-json-file-in-python
 def datei_schreiben(datei, daten):
     with open (datei, "w", encoding="utf-8") as json_file:
@@ -63,19 +64,15 @@ def home():
         
     return render_template("index_startseite.html", ausgabe=ausgabe, hamsterer=hamsterer)
 
-@app.route("/home/")
-def neu():
-    dinger = ["Eins", "Zwei", "Drei"]
-    zahl = 6
-    return render_template("index_startseite.html", dinger=dinger, zahl=zahl)
 
-#funktion nimmmt die eingabe per get post method entgegen.
+# Formular Eingabe der hilfsbeürftigen Person. Funktion nimmmt die Eingabe per get post Method entgegen.
 @app.route("/brauche_hilfe", methods=['GET', 'POST'])
 def brauche_hilfe():
     alle_eingaben= datei_öffnen("text.json",[])
     ausgabe=""
     titel=""
 #Quelle für Datum Funktion: https://www.programiz.com/python-programming/datetime/current-datetime 
+#Datum wird durch date/timedelta umgewandelt
     if request.method == 'POST':
         eintragsid = uuid.uuid1() 
         vorname = request.form['vorname']
@@ -99,7 +96,8 @@ def brauche_hilfe():
             tag = str(date.today() + timedelta(7))
         if tag == "in zwei Wochen":
             tag = str(date.today() + timedelta(14))
-
+            
+#Dictionary wird mit Eingaben des Formulars gefüllt
         eingabe_brauche_hilfe = {
             "id": str(eintragsid),
             "Vorname": vorname,
