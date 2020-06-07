@@ -1,8 +1,8 @@
-**Zugriff auf die Webapplikation
+**Zugriff auf die Webapplikatione**<br />
 Die Webapplikation lässt sich mit folgender url aufrufen:
 http://127.0.0.1:5000/home/
 
-**Projektidee
+**Projektidee** <br />
 Webapplikation Nachbarschaftshilfe während der COVID-19 Krise**
 
 **Ausgangslage**<br />
