@@ -1,9 +1,9 @@
-**Zugriff auf die Webapplikatione**<br />
+**Zugriff auf die Webapplikation**<br />
 Die Webapplikation lässt sich mit folgender url aufrufen:
 http://127.0.0.1:5000/home/
 
 **Projektidee** <br />
-Webapplikation Nachbarschaftshilfe während der COVID-19 Krise**
+Webapplikation zur Förderung der Nachbarschaftshilfe während der COVID-19 Krise
 
 **Ausgangslage**<br />
 Seit dem Ausbruch der Pandemie sind Personen aus der Risikogruppe besonders im Alltag von der Krise betroffen. Alltägliche Dinge wie Einkaufen oder bei der Post etwas abholen, kann für sie bereits ein grosses Risiko darstellen. Meine Webapplikation soll die Solidarität in den Regionen fördern und es den betroffenen Personen ermöglichen Hilfe anzufordern. Freiwillige können dann via PLZ prüfen, wer im Dorf/Stadt hilfe braucht und können sich anschliessend an die Person wenden, um den Auftrag auszuführen. 
