@@ -7,6 +7,7 @@ import uuid
 
 
 #zur Ausführung der Datei müssen alle obige Pakete from flask "" oder import "" geladen sein. 
+#Zum Aufrufen der Startseite bitte /home/ verwenden
 #hier wird die datei gelesen/geladen, wenn bestehende Daten vorhanden sind.
 #ansonsten gilt except 
 #tutoring und Quelle Einführung Programmieren Json 
